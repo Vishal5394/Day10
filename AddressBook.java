@@ -75,11 +75,39 @@ public class AddressBook {
 	        addContact();
 	    }
 	}
+	public int searchExistingContact() {
+	    int index = 1;
+	    int tempIndex = 1;
+	    for (ArrayList<String> i : AddressBook.addressBook) {
+	        tempIndex++;
+	        for (String j : i) {
+	            String searchPerson = new String();
+	            if (j.equals(searchPerson)) {
+	                index = tempIndex;
+	                break;
+	            }
+	        }
+	    }
+	    return index;
+	}
+	public void editExistingContact() {
+	    System.out.println("\n Enter the name of the person whose details you " + "want to change");
+	    Scanner sc = new Scanner(System.in);
+	    String searchPerson = sc.next();
+	    int index = searchExistingContact(); 
+	    System.out.println("\n Found the name, Kindly enter new details ");
+	    ArrayList<String> contact = enterContactDetails();
+	      AddressBook.addressBook.set(index, contact);
+	      addContact();
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to address Book Program");
 		 AddressBook details = new AddressBook();
 		 details.addContact();
 		 details.addMultiplePerson();
+		 details.searchExistingContact();
+		 details.editExistingContact();
 	}
 }
 
