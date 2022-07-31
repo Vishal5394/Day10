@@ -23,7 +23,7 @@ public class AddressBook {
 	public ArrayList enterContactDetails() {
 	    ArrayList<String> contact = new ArrayList<String>();
 
-	    System.out.println("Enter the first name: ");
+	    System.out.println("\nEnter the first name: ");
 	    Scanner sc1 = new Scanner(System.in);
 	    String first_name = sc1.next();
 	  //contact.add(first_name);
@@ -65,10 +65,21 @@ public class AddressBook {
 
 	    return contact;
 	}
+	
+	public void addMultiplePerson() {
+	    System.out.println("\nEnter the number of persons whose details you want " + "to add to the address book\n");
+	    Scanner sc = new Scanner(System.in);
+	    int no_of_person = sc.nextInt();
+	    for (int i = 1; i <= no_of_person; i++) {
+
+	        addContact();
+	    }
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to address Book Program");
 		 AddressBook details = new AddressBook();
 		 details.addContact();
+		 details.addMultiplePerson();
 	}
 }
 
